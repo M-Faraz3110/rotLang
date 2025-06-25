@@ -1,0 +1,3 @@
+/Users/faraz/Projects/rotLang/build/CMakeFiles/rotlangvm.dir
+/Users/faraz/Projects/rotLang/build/CMakeFiles/edit_cache.dir
+/Users/faraz/Projects/rotLang/build/CMakeFiles/rebuild_cache.dir

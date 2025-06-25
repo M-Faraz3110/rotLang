@@ -1,0 +1,1 @@
+/usr/bin/cc -g -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/rotlangvm.dir/main.c.o CMakeFiles/rotlangvm.dir/chunk.c.o CMakeFiles/rotlangvm.dir/debug.c.o CMakeFiles/rotlangvm.dir/memory.c.o CMakeFiles/rotlangvm.dir/value.c.o CMakeFiles/rotlangvm.dir/vm.c.o -o rotlangvm
