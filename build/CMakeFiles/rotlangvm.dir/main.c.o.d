@@ -1,4 +1,5 @@
 CMakeFiles/rotlangvm.dir/main.c.o: /Users/faraz/Projects/rotLang/main.c \
+  /Users/faraz/Projects/rotLang/chunk.h \
   /Users/faraz/Projects/rotLang/common.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/stdbool.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/stddef.h \
@@ -29,7 +30,6 @@ CMakeFiles/rotlangvm.dir/main.c.o: /Users/faraz/Projects/rotLang/main.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_uintptr_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_intmax_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_uintmax_t.h \
-  /Users/faraz/Projects/rotLang/chunk.h \
   /Users/faraz/Projects/rotLang/value.h \
   /Users/faraz/Projects/rotLang/debug.h \
   /Users/faraz/Projects/rotLang/vm.h

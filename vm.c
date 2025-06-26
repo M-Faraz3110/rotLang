@@ -1,6 +1,8 @@
 #include <stdio.h>
+#include <time.h>
 
 #include "common.h"
+#include "compiler.h"
 #include "debug.h"
 #include "vm.h"
 
@@ -14,6 +16,12 @@ void freeVM() {}
 
 void push(Value value) {
   *vm.stackTop = value;
+  vm.stackTop++;
+}
+
+void negate() {
+  vm.stackTop--;
+  *vm.stackTop = -(*vm.stackTop);
   vm.stackTop++;
 }
 
@@ -37,6 +45,12 @@ static InterpretResult run() {
     printf("value: %g ", vm.chunk->constants.values[byte]);                    \
     vm.chunk->constants.values[byte];                                          \
   })
+#define BINARY_OP(op)                                                          \
+  do {                                                                         \
+    double b = pop();                                                          \
+    double a = pop();                                                          \
+    push(a op b);                                                              \
+  } while (false)
 
   for (;;) {
 
@@ -60,6 +74,27 @@ static InterpretResult run() {
       printf("\n");
       break;
     }
+    case OP_ADD:
+      BINARY_OP(+);
+      break;
+    case OP_SUBTRACT:
+      BINARY_OP(-);
+      break;
+    case OP_MULTIPLY:
+      BINARY_OP(*);
+      break;
+    case OP_DIVIDE:
+      BINARY_OP(/);
+      break;
+    case OP_NEGATE: {
+      clock_t t1 = clock();
+      // push(-pop());
+      negate();
+      clock_t t2 = clock();
+      double time_taken = t2 - t1;
+      printf("time taken: %f \n", time_taken / CLOCKS_PER_SEC);
+      break;
+    }
     case OP_RETURN: {
       printValue(pop());
       printf("\n");
@@ -70,10 +105,23 @@ static InterpretResult run() {
 
 #undef READ_BYTE
 #undef READ_CONSTANT
+#undef BINARY_OP
 }
 
-InterpretResult interpret(Chunk *chunk) {
-  vm.chunk = chunk;
+InterpretResult interpret(const char *source) {
+  Chunk chunk;
+  initChunk(&chunk);
+
+  if (!compile(source, &chunk)) {
+    freeChunk(&chunk);
+    return INTERPRET_COMPILE_ERROR;
+  }
+
+  vm.chunk = &chunk;
   vm.ip = vm.chunk->code;
-  return run();
+
+  InterpretResult result = run();
+
+  freeChunk(&chunk);
+  return result;
 }
