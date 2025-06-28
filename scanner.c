@@ -175,11 +175,13 @@ static Token identifier() {
 }
 
 static Token number() {
+  bool isDouble = false;
   while (isDigit(peek()))
     advance();
 
   // Look for a fractional part.
   if (peek() == '.' && isDigit(peekNext())) {
+    isDouble = true;
     // Consume the ".".
     advance();
 
@@ -187,7 +189,10 @@ static Token number() {
       advance();
   }
 
-  return makeToken(TOKEN_NUMBER);
+  if (isDouble) {
+    return makeToken(TOKEN_DOUBLE);
+  }
+  return makeToken(TOKEN_INT);
 }
 
 static Token string() {
