@@ -19,6 +19,24 @@
         "type_traits": "c",
         "chunk.h": "c",
         "stack": "cpp",
-        "__config": "c"
+        "__config": "c",
+        "__locale": "c",
+        "__verbose_abort": "c",
+        "cstdlib": "c",
+        "format": "c",
+        "ios": "c",
+        "ostream": "c",
+        "print": "c",
+        "stdexcept": "c",
+        "string": "c",
+        "string_view": "c",
+        "typeinfo": "c",
+        "version": "c",
+        "__debug": "c",
+        "__string": "c",
+        "iosfwd": "c",
+        "vm.h": "c",
+        "common.h": "c",
+        "__threading_support": "c"
     }
 }

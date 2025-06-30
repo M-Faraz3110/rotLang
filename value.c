@@ -1,6 +1,8 @@
 #include <stdio.h>
+#include <string.h>
 
 #include "memory.h"
+#include "object.h"
 #include "value.h"
 
 void initValueArray(ValueArray *array) {
@@ -40,6 +42,9 @@ void printValue(Value value) {
   case VAL_INT:
     printf("%d", AS_INT(value));
     break;
+  case VAL_OBJ:
+    printObject(value);
+    break;
   }
 }
 
@@ -55,6 +60,8 @@ bool valuesEqual(Value a, Value b) {
     return AS_DOUBLE(a) == AS_DOUBLE(b);
   case VAL_INT:
     return AS_INT(a) == AS_INT(b);
+  case VAL_OBJ:
+    return AS_OBJ(a) == AS_OBJ(b); // cuz of string interning
   default:
     return false; // Unreachable.
   }

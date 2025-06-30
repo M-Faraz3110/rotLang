@@ -1,10 +1,13 @@
 #include <stdarg.h>
 #include <stdio.h>
+#include <string.h>
 #include <time.h>
 
 #include "common.h"
 #include "compiler.h"
 #include "debug.h"
+#include "memory.h"
+#include "object.h"
 #include "vm.h"
 
 VM vm;
@@ -24,9 +27,16 @@ static void runtimeError(const char *format, ...) {
   resetStack();
 }
 
-void initVM() { resetStack(); }
+void initVM() {
+  resetStack();
+  vm.objects = NULL;
+  initTable(&vm.strings);
+}
 
-void freeVM() {}
+void freeVM() {
+  freeTable(&vm.strings);
+  freeObjects();
+}
 
 void push(Value value) {
   *vm.stackTop = value;
@@ -48,6 +58,20 @@ static Value peek(int distance) { return vm.stackTop[-1 - distance]; }
 
 static bool isFalsey(Value value) {
   return IS_NIL(value) || (IS_BOOL(value) && !AS_BOOL(value));
+}
+
+static void concatenate() {
+  ObjString *b = AS_STRING(pop());
+  ObjString *a = AS_STRING(pop());
+
+  int length = a->length + b->length;
+  char *chars = ALLOCATE(char, length + 1);
+  memcpy(chars, a->chars, a->length);
+  memcpy(chars + a->length, b->chars, b->length);
+  chars[length] = '\0';
+
+  ObjString *result = takeString(chars, length);
+  push(OBJ_VAL(result));
 }
 
 static InterpretResult run() {
@@ -136,7 +160,9 @@ static InterpretResult run() {
       BINARY_OP(BOOL_VAL, <);
       break;
     case OP_ADD:
-      if (IS_INT(peek(0))) {
+      if (IS_STRING(peek(0)) && IS_STRING(peek(1))) {
+        concatenate();
+      } else if (IS_INT(peek(0))) {
         BINARY_OP(INT_VAL, +);
       } else if (IS_DOUBLE(peek(0))) {
         BINARY_OP(DOUBLE_VAL, +);
