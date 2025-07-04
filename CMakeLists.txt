@@ -16,4 +16,6 @@ add_executable(rotlangvm
     vm.c
     compiler.c
     scanner.c
+    table.c
+    object.c
 )

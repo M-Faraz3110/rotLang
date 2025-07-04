@@ -13,7 +13,9 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/faraz/Projects/rotLang/debug.c" "CMakeFiles/rotlangvm.dir/debug.c.o" "gcc" "CMakeFiles/rotlangvm.dir/debug.c.o.d"
   "/Users/faraz/Projects/rotLang/main.c" "CMakeFiles/rotlangvm.dir/main.c.o" "gcc" "CMakeFiles/rotlangvm.dir/main.c.o.d"
   "/Users/faraz/Projects/rotLang/memory.c" "CMakeFiles/rotlangvm.dir/memory.c.o" "gcc" "CMakeFiles/rotlangvm.dir/memory.c.o.d"
+  "/Users/faraz/Projects/rotLang/object.c" "CMakeFiles/rotlangvm.dir/object.c.o" "gcc" "CMakeFiles/rotlangvm.dir/object.c.o.d"
   "/Users/faraz/Projects/rotLang/scanner.c" "CMakeFiles/rotlangvm.dir/scanner.c.o" "gcc" "CMakeFiles/rotlangvm.dir/scanner.c.o.d"
+  "/Users/faraz/Projects/rotLang/table.c" "CMakeFiles/rotlangvm.dir/table.c.o" "gcc" "CMakeFiles/rotlangvm.dir/table.c.o.d"
   "/Users/faraz/Projects/rotLang/value.c" "CMakeFiles/rotlangvm.dir/value.c.o" "gcc" "CMakeFiles/rotlangvm.dir/value.c.o.d"
   "/Users/faraz/Projects/rotLang/vm.c" "CMakeFiles/rotlangvm.dir/vm.c.o" "gcc" "CMakeFiles/rotlangvm.dir/vm.c.o.d"
   )

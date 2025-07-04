@@ -75,6 +75,31 @@ static Entry *findEntry(Entry *entries, int capacity, Value key) {
   }
 }
 
+static void adjustCapacity(Table *table, int capacity) {
+  Entry *entries = ALLOCATE(Entry, capacity);
+  for (int i = 0; i < capacity; i++) {
+    entries[i].key = NIL_VAL;
+    entries[i].value = NIL_VAL;
+  }
+
+  table->count = 0;
+  for (int i = 0; i < table->capacity; i++) {
+    Entry *entry = &table->entries[i];
+    if (valuesEqual(entry->key, NIL_VAL))
+      continue;
+
+    Entry *dest = findEntry(entries, capacity, entry->key);
+    dest->key = entry->key;
+    dest->value = entry->value;
+    table->count++;
+  }
+
+  FREE_ARRAY(Entry, table->entries, table->capacity);
+
+  table->entries = entries;
+  table->capacity = capacity;
+}
+
 bool tableGet(Table *table, Value key, Value *value) {
   if (table->count == 0)
     return false;
@@ -89,7 +114,7 @@ bool tableGet(Table *table, Value key, Value *value) {
 
 bool tableSet(Table *table, Value key, Value value) {
   if (table->count + 1 > table->capacity * TABLE_MAX_LOAD) {
-    int capacity = GROW_CAPACITY(table->capacity);
+    int capacity = INCREASE_CAPACITY(table->capacity);
     adjustCapacity(table, capacity);
   }
   Entry *entry = findEntry(table->entries, table->capacity, key);
@@ -151,29 +176,4 @@ ObjString *tableFindString(Table *table, const char *chars, int length,
 
     index = (index + 1) % table->capacity;
   }
-}
-
-static void adjustCapacity(Table *table, int capacity) {
-  Entry *entries = ALLOCATE(Entry, capacity);
-  for (int i = 0; i < capacity; i++) {
-    entries[i].key = NIL_VAL;
-    entries[i].value = NIL_VAL;
-  }
-
-  table->count = 0;
-  for (int i = 0; i < table->capacity; i++) {
-    Entry *entry = &table->entries[i];
-    if (valuesEqual(entry->key, NIL_VAL))
-      continue;
-
-    Entry *dest = findEntry(entries, capacity, entry->key);
-    dest->key = entry->key;
-    dest->value = entry->value;
-    table->count++;
-  }
-
-  FREE_ARRAY(Entry, table->entries, table->capacity);
-
-  table->entries = entries;
-  table->capacity = capacity;
 }

@@ -43,6 +43,13 @@ CMakeFiles/rotlangvm.dir/vm.c.o: /Users/faraz/Projects/rotLang/vm.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_ssize_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/secure/_stdio.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/secure/_common.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/string.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_string.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_rsize_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_errno_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_strings.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/secure/_strings.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/secure/_string.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/time.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_time.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_clock_t.h \
@@ -70,4 +77,7 @@ CMakeFiles/rotlangvm.dir/vm.c.o: /Users/faraz/Projects/rotLang/vm.c \
   /Users/faraz/Projects/rotLang/vm.h \
   /Users/faraz/Projects/rotLang/chunk.h \
   /Users/faraz/Projects/rotLang/value.h \
-  /Users/faraz/Projects/rotLang/debug.h
+  /Users/faraz/Projects/rotLang/table.h \
+  /Users/faraz/Projects/rotLang/debug.h \
+  /Users/faraz/Projects/rotLang/memory.h \
+  /Users/faraz/Projects/rotLang/object.h

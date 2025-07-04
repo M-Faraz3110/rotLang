@@ -82,4 +82,9 @@ CMakeFiles/rotlangvm.dir/memory.c.o: \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/__stddef_rsize_t.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/__stddef_wchar_t.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/__stddef_null.h \
-  /Library/Developer/CommandLineTools/usr/lib/clang/16/include/__stddef_offsetof.h
+  /Library/Developer/CommandLineTools/usr/lib/clang/16/include/__stddef_offsetof.h \
+  /Users/faraz/Projects/rotLang/object.h \
+  /Users/faraz/Projects/rotLang/value.h \
+  /Users/faraz/Projects/rotLang/vm.h \
+  /Users/faraz/Projects/rotLang/chunk.h \
+  /Users/faraz/Projects/rotLang/table.h

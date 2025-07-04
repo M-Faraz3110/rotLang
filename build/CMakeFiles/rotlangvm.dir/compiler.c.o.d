@@ -97,5 +97,7 @@ CMakeFiles/rotlangvm.dir/compiler.c.o: \
   /Users/faraz/Projects/rotLang/vm.h \
   /Users/faraz/Projects/rotLang/chunk.h \
   /Users/faraz/Projects/rotLang/value.h \
+  /Users/faraz/Projects/rotLang/table.h \
+  /Users/faraz/Projects/rotLang/object.h \
   /Users/faraz/Projects/rotLang/scanner.h \
   /Users/faraz/Projects/rotLang/debug.h

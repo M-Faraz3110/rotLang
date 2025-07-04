@@ -33,6 +33,7 @@ CMakeFiles/rotlangvm.dir/main.c.o: /Users/faraz/Projects/rotLang/main.c \
   /Users/faraz/Projects/rotLang/value.h \
   /Users/faraz/Projects/rotLang/debug.h \
   /Users/faraz/Projects/rotLang/vm.h \
+  /Users/faraz/Projects/rotLang/table.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/stdio.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_stdio.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
