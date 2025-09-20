@@ -37,6 +37,11 @@
         "iosfwd": "c",
         "vm.h": "c",
         "common.h": "c",
-        "__threading_support": "c"
+        "__threading_support": "c",
+        "__hash_table": "c",
+        "memory": "c",
+        "functional": "c",
+        "unordered_map": "c",
+        "variant": "c"
     }
 }
